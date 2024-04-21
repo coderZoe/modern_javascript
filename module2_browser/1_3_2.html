@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div>Users:</div>
+    <ul>
+        <li>John</li>
+        <li>Pete</li>
+    </ul>
+
+    <script>
+        function getDiv() {
+            return document.body.firstElementChild;
+        }
+        function getUl() {
+            return getDiv().nextElementSibling
+        }
+
+        function getSecondLi() {
+            return getUl().lastElementChild;
+        }
+
+        console.log(getDiv())
+        console.log(getUl())
+        console.log(getSecondLi())
+    </script>
+</body>
+
+</html>

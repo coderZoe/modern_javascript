@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>dom遍历测试</title>
+</head>
+
+<body>
+    <div>
+        <button>没任何用的按钮</button>
+    </div>
+    <ul>
+        <li>测试1</li>
+        <li>测试2</li>
+        <li>测试3</li>
+    </ul>
+
+    <table>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>籍贯</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>28</td>
+            <td>台湾</td>
+        </tr>
+        <tr>
+            <td>小红</td>
+            <td>18</td>
+            <td>山东</td>
+        </tr>
+    </table>
+    <style>
+        table,
+        table tr td {
+            border: 1px solid black
+        }
+    </style>
+
+    <script>
+        function getChildNodes(node) {
+            console.log(node);
+            node.childNodes.forEach(element => {
+                getChild(element)
+            });
+        }
+        function getChildren(node) {
+            console.log(node);
+            Array.from(node.children).forEach(child => {
+                console.log(child)
+                getChildren(child)
+            })
+        }
+        //childNodes与children的区别是childNodes会将文本节点也列出来，但children只会列出元素节点
+        //实际开发中，我们更多也只是操作元素节点
+        getChildren(document)
+    </script>
+</body>
+
+</html>

@@ -273,7 +273,3 @@ function getAndPush(array, trIndex, tdIndex, unshift) {
     }
 }
 
-
-function handleSuccess(element) {
-
-}

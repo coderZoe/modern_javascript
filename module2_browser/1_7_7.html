@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table,
+        table tr td,
+        table tr th {
+            border: 1px solid black;
+        }
+
+        table td {
+            width: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Smith</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Pete</td>
+                    <td>Brown</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Ann</td>
+                    <td>Lee</td>
+                    <td>5</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            let tbody = document.querySelector("tbody");
+            let trArray = tbody.querySelectorAll("tr");
+            trArray = sortTr(trArray);
+            for (let tr of trArray) {
+                tbody.append(tr);
+            }
+
+            function sortTr(trs) {
+                let trArray = [...trs];
+                trArray.sort((a, b) => a.querySelector("td").textContent.localeCompare(b.querySelector("td").textContent));
+                return trArray;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

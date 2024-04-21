@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div> <span id="h" style="color: red;">hh</span>:<span id="m" style="color: green;">mm</span>:<span id="s"
+            style="color: blue;">ss</span>
+    </div>
+    <div>
+        <button onclick="start()">start</button>
+        <button onclick="stop()">stop</button>
+    </div>
+
+    <script>
+        let timeId;
+        function start() {
+            timeId = setInterval(() => {
+                let now = new Date();
+                let hours = now.getHours();
+                let min = now.getMinutes();
+                let sec = now.getSeconds();
+                h.textContent = hours;
+                m.textContent = min;
+                s.textContent = sec;
+            }, 1000);
+        }
+        function stop() {
+            clearInterval(timeId);
+        }
+    </script>
+
+</body>
+
+</html>

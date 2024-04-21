@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <div id="div"></div>
+
+    <style>
+        table,
+        table td {
+            border: 1px solid black;
+        }
+
+        table td {
+            width: 40px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        createCalender(div, 2024, 3)
+        function createCalender(element, year, month) {
+            element.append(createTable(year, month));
+        }
+
+        function createTable(year, month) {
+            let table = document.createElement("table");
+            table.append(createHeadTr());
+            createBodyTr(table, year, month);
+            return table;
+
+        }
+
+        function createHeadTr() {
+            let tr = document.createElement("tr");
+
+            let mo = document.createElement("td");
+            mo.textContent = "MO";
+            tr.append(mo);
+
+            let tu = document.createElement("td");
+            tu.textContent = "TU";
+            tr.append(tu);
+
+            let we = document.createElement("td");
+            we.textContent = "WE";
+            tr.append(we);
+
+            let th = document.createElement("td");
+            th.textContent = "TH";
+            tr.append(th);
+
+            let fr = document.createElement("td");
+            fr.textContent = "FR";
+            tr.append(fr);
+
+            let sa = document.createElement("td");
+            sa.textContent = "SA";
+            tr.append(sa);
+
+            let su = document.createElement("td");
+            su.textContent = "SU";
+            tr.append(su);
+
+            return tr;
+        }
+
+        function createBodyTr(table, year, month) {
+            let days = (new Date(year, month + 1) - new Date(year, month)) / (1000 * 3600 * 24);
+            let map = new Map();
+            for (let i = 1; i <= days; i++) {
+                let date = new Date(year, month, i);
+                let day = date.getDay();
+                if (day != 0 && i != days) {
+                    map.set(day, date);
+                } else {
+                    if (day === 0) {
+                        map.set(7, date);
+                    } else {
+                        map.set(day, date);
+                    }
+                    table.append(createTr(map))
+                    map = new Map();
+                }
+            }
+        }
+
+
+        function createTr(map) {
+            let tr = document.createElement("tr");
+            for (let i = 0; i < 7; i++) {
+                let td = document.createElement("td");
+                let date = map.get(i + 1);
+                if (date) {
+                    td.textContent = date.getDate();
+                }
+                tr.append(td);
+            }
+            return tr;
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>
+                Animals
+                <ul>
+                    <li>Mammals
+                        <ul>
+                            <li>Cows</li>
+                            <li>Donkeys</li>
+                            <li>Dogs</li>
+                            <li>Tigers</li>
+                        </ul>
+                    </li>
+                    <li>Other
+                        <ul>
+                            <li>Snakes </li>
+                            <li>Birds </li>
+                            <li>Lizards </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Fishes
+                <ul>
+                    <li>Aquarium
+                        <ul>
+                            <li>Guppy</li>
+                            <li>Angelfish</li>
+                        </ul>
+                    </li>
+                    <li>Sea
+                        <ul>
+                            <li>Sea trout</li>
+                        </ul>
+                    </li>
+            </li>
+        </ul>
+        </li>
+        </ul>
+    </div>
+
+    <script>
+        let liArray = document.querySelectorAll("li");
+        for (let element of liArray) {
+            console.log(element.firstChild.data);
+        }
+        for (let element of liArray) {
+            let count = getChildLiCount(element);
+            console.log(element.firstChild.data, count);
+        }
+
+
+        function getChildLiCount(element) {
+            let liArray = element.querySelectorAll("li");
+            let count = liArray.length;
+            return count;
+        }
+    </script>
+</body>
+
+</html>
